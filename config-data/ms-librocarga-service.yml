@@ -1,16 +1,15 @@
 server:
-  port: 8084
+  port: 8087
 spring:
   application:
-    name: ms-inventario-service
+    name: ms-librocarga-service
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/ms_inventario
-    username: root
+    url: jdbc:mysql://localhost:3306/ms_librocarga
     password: ""
     driver-class-name: com.mysql.cj.jdbc.Driver
 
