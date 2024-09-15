@@ -15,9 +15,9 @@ public class Librocarga {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer id_libro;
-    private String id_envio;
-    private LocalDateTime fecha_registro;
-    private String detalle_envio;
+    private Integer libro;
+    private String envio;
+    private LocalDateTime fecharegistro;
+    private String detalleenvio;
 
 }

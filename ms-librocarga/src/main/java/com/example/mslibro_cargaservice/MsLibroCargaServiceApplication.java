@@ -16,7 +16,7 @@ public class MsLibroCargaServiceApplication {
 	@Bean
 	public OpenAPI custumOpenAPI() {
 		return new OpenAPI().info(new Info()
-				.title("OPEN API MICROSERVICIO CLIENTE")
+				.title("OPEN API MICROSERVICIO LIBROCARGA")
 				.version("0.0.1")
 				.description("servicio web librocarga")
 				.termsOfService("http://swagger.io/terms")
