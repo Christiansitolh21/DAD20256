@@ -1,5 +1,4 @@
-package entity;
-
+package com.example.msvehiculo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,17 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @Entity
-public class Librocarga {
+public class Vehiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer libro;
-    private String envio;
-    private LocalDateTime fecharegistro;
-    private String detalleenvio;
-
+    private String name;
+    private String marca;
+    private String modelo;
+    private String placa;
+    private String color;
+    private String tipo;
 }

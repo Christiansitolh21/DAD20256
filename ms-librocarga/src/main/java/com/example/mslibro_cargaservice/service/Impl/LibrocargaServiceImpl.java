@@ -1,10 +1,11 @@
-package service.Impl;
+package com.example.mslibro_cargaservice.service.Impl;
 
-import entity.Librocarga;
+
+import com.example.mslibro_cargaservice.repository.LibrocargaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.LibrocargaRepository;
-import service.LibrocargaService;
+import com.example.mslibro_cargaservice.service.LibrocargaService;
+import com.example.mslibro_cargaservice.entity.Librocarga;
 
 import java.util.List;
 import java.util.Optional;

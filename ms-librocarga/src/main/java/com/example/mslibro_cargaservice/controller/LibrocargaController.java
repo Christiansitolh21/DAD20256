@@ -1,11 +1,11 @@
-package controller;
+package com.example.mslibro_cargaservice.controller;
 
 
-import entity.Librocarga;
+import com.example.mslibro_cargaservice.entity.Librocarga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.LibrocargaService;
+import com.example.mslibro_cargaservice.service.LibrocargaService;
 
 import java.util.List;
 

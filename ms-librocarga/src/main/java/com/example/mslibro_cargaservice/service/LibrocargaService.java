@@ -1,6 +1,7 @@
-package service;
+package com.example.mslibro_cargaservice.service;
 
-import entity.Librocarga;
+
+import com.example.mslibro_cargaservice.entity.Librocarga;
 
 import java.util.List;
 import java.util.Optional;
