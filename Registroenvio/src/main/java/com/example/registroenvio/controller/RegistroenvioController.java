@@ -35,7 +35,7 @@ public class RegistroenvioController {
         return ResponseEntity.ok(registroenvioService.actualizar(registroenvio));
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<List<Registroenvio>> eliminar(@PathVariable(required = true) Integer id){
         registroenvioService.eliminar(id);
         return ResponseEntity.ok(registroenvioService.listar());
