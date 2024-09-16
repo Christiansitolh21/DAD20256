@@ -1,15 +1,15 @@
 server:
-  port: 8091
+  port: 8086
 spring:
   application:
-    name: ms-inventario-service
+    name: ms-vehiculo-service
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/ms_inventario
+    url: jdbc:mysql://localhost:3306/ms_vehiculo
     username: root
     password: ""
     driver-class-name: com.mysql.cj.jdbc.Driver
