@@ -10,7 +10,7 @@ public interface RegistroenvioService {
 
     public Registroenvio guardar(Registroenvio registroenvio);
 
-    public Optional<Registroenvio> buscarPorId(Integer id);
+    public Registroenvio buscarPorId(Integer id);
 
     public Registroenvio actualizar(Registroenvio registroenvio);
 

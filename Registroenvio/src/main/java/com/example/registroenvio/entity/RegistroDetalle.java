@@ -16,9 +16,6 @@ public class RegistroDetalle {
     private LocalDateTime fechasalida;
     private LocalDateTime fechallegada;
     private Double precio;
-    private Integer VehiculoId;
-    @Transient
-    private VehiculoDto vehiculoDto;
 
     public RegistroDetalle(){
         this.precio = (double) 0;
