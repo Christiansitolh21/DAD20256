@@ -30,8 +30,8 @@ public class RegistroenvioController {
         return ResponseEntity.ok(registroenvioService.buscarPorId(id).get());
     }
 
-    @PutMapping
-    public ResponseEntity<Registroenvio> actualizar(@RequestBody Registroenvio registroenvio){
+    @PutMapping("/{id}")
+    public ResponseEntity<Registroenvio> actualizar(@PathVariable Integer id, @RequestBody Registroenvio registroenvio){
         return ResponseEntity.ok(registroenvioService.actualizar(registroenvio));
     }
 
