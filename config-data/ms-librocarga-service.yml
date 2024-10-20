@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: ms-cliente-service
+    name: ms-librocarga-service
   jpa:
     hibernate:
       ddl-auto: update
