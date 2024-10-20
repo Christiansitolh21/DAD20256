@@ -1,7 +1,7 @@
 package com.example.mslibro_cargaservice.controller;
 
 
-import com.example.mslibro_cargaservice.entity.Producto;
+import  com.example.mslibro_cargaservice.entity.Producto;
 import com.example.mslibro_cargaservice.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

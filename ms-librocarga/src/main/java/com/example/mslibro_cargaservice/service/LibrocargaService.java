@@ -9,11 +9,11 @@ import java.util.Optional;
 public interface LibrocargaService {
     public List<Librocarga> listar();
 
-    public Librocarga guardar(Librocarga libro_carga);
+    public Librocarga guardar(Librocarga librocarga);
 
     public Optional<Librocarga> buscarPorId(Integer id);
 
-    public Librocarga actualizar(Librocarga libro_carga);
+    public Librocarga actualizar(Librocarga librocarga);
 
     public void eliminar(Integer id);
 }

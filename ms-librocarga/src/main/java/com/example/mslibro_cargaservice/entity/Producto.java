@@ -16,8 +16,4 @@ public class Producto {
     private String descripcionproducto;
     private Integer cantidadproducto;
     private LocalDateTime fechaproducto;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "librocarga_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Producto producto;
 }
