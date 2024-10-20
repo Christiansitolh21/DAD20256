@@ -27,7 +27,7 @@ public class RegistroenvioController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Registroenvio> buscarPorId(@PathVariable(required = true) Integer id){
-        return ResponseEntity.ok(registroenvioService.buscarPorId(id).get());
+        return ResponseEntity.ok(registroenvioService.buscarPorId(id));
     }
 
     @PutMapping("/{id}")

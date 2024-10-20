@@ -1,10 +1,12 @@
 package com.example.registroenvio.service.Impl;
 
+import com.example.registroenvio.dto.ClienteDto;
 import com.example.registroenvio.dto.VehiculoDto;
 import com.example.registroenvio.entity.RegistroDetalle;
 import com.example.registroenvio.entity.Registroenvio;
 import com.example.registroenvio.exception.ResourceNotFoundException;
-import com.example.registroenvio.feign.VehiculoDtoFeign;
+
+import com.example.registroenvio.feign.ClienteFeign;
 import com.example.registroenvio.feign.VehiculoFeign;
 import com.example.registroenvio.repository.RegistroenvioRepository;
 import com.example.registroenvio.service.RegistroenvioService;
@@ -24,7 +26,8 @@ public class RegistroenvioServiceImpl implements RegistroenvioService {
     private RegistroenvioRepository registroenvioRepository;
     @Autowired
     private VehiculoFeign vehiculoFeign;
-
+    @Autowired
+    private ClienteFeign clienteFeign;
 
     @Override
     public List<Registroenvio> listar() {
@@ -67,6 +70,12 @@ public class RegistroenvioServiceImpl implements RegistroenvioService {
                 throw new ResourceNotFoundException("VehiculoDto con ID " + registroenvio.getVehiculoId() + " no existe");
             }
             registroenvio.setVehiculoDto(vehiculoDtoResponse.getBody());
+
+            ResponseEntity<ClienteDto> clienteDtoResponse = clienteFeign.getById(registroenvio.getClienteId());
+            if (clienteDtoResponse.getBody() == null) {
+                throw new ResourceNotFoundException("ClienteDto con ID " + registroenvio.getClienteId() + " no existe");
+            }
+            registroenvio.setClienteDto(clienteDtoResponse.getBody());
         } catch (FeignException e) {
             // Manejar el error en el servidor de OpenFeign para VehiculoDto
             throw new RuntimeException("Error al obtener el VehiculoDto con ID " + registroenvio.getVehiculoId(), e);
