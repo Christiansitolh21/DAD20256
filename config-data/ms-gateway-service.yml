@@ -24,10 +24,6 @@ spring:
           uri: lb://ms-cliente-service
           predicates:
             - Path=/clientes/**
-        - id: ms-librocarga-service
-          uri: lb://ms-librocarga-service
-          predicates:
-            - Path=/librocarga/**
         - id: ms-registroenvio-service
           uri: lb://ms-registroenvio-service
           predicates:
