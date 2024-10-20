@@ -34,6 +34,10 @@ spring:
             - Path=/registroenvio/**
           filters:
             - AuthFilter
+        - id: ms-librocarga-service
+          uri: lb://ms-librocarga-service
+          predicates:
+            - Path=/librocarga/**
         - id: ms-auth-service
           uri: lb://ms-auth-service
           predicates:
