@@ -1,8 +1,6 @@
-package com.example.registroenvio.entity;
+package com.example.msgestionenvio.dto;
 
-
-import com.example.registroenvio.dto.ClienteDto;
-import com.example.registroenvio.dto.VehiculoDto;
+import com.example.msgestionenvio.entity.GestionDetalle;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,8 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@Entity
-public class Registroenvio  {
+public class RegistroenvioDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,7 +20,7 @@ public class Registroenvio  {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "registro_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    public List<RegistroDetalle> registroDetalles;
+    public List<GestionDetalle> gestionDetalle;
 
     private Integer VehiculoId;
     @Transient
@@ -32,5 +29,4 @@ public class Registroenvio  {
     private Integer ClienteId;
     @Transient
     private ClienteDto clienteDto;
-
 }

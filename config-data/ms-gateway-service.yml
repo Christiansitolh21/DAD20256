@@ -38,6 +38,10 @@ spring:
           uri: lb://ms-librocarga-service
           predicates:
             - Path=/librocarga/**
+        - id: ms-gestionenvio-service
+          uri: lb://ms-gestionenvio-service
+          predicates:
+            - Path=/gestionenvio/**
         - id: ms-auth-service
           uri: lb://ms-auth-service
           predicates:
