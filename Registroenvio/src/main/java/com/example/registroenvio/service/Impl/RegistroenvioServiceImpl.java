@@ -42,6 +42,12 @@ public class RegistroenvioServiceImpl implements RegistroenvioService {
                     throw new ResourceNotFoundException("VehiculoDto con ID " + registroenvio.getVehiculoId() + " no existe");
                 }
                 registroenvio.setVehiculoDto(vehiculoDtoResponse.getBody());
+                ResponseEntity<ClienteDto> clienteDtoResponse = clienteFeign.getById(registroenvio.getClienteId());
+                if (clienteDtoResponse.getBody() == null) {
+                    throw new ResourceNotFoundException("ClienteDto con ID " + registroenvio.getClienteId() + " no existe");
+                }
+                registroenvio.setClienteDto(clienteDtoResponse.getBody());
+
             } catch (FeignException e) {
                 // Manejar el error en el servidor de OpenFeign para VehiculoDto
                 throw new RuntimeException("Error al obtener el VehiculoDto con ID " + registroenvio.getVehiculoId(), e);

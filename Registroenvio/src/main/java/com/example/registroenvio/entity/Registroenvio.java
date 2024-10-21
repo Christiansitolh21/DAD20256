@@ -33,4 +33,11 @@ public class Registroenvio  {
     @Transient
     private ClienteDto clienteDto;
 
+    @Enumerated(EnumType.STRING)  // 0:pendiente 1:encamino 2:entregadoPara almacenar el nombre del estado como texto en la base de datos
+    private EstadoEnvio estadoEnvio;
+    public enum EstadoEnvio {
+        PENDIENTE,
+        EN_CAMINO,
+        ENTREGADO
+    }
 }

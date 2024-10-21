@@ -17,16 +17,4 @@ public class RegistroenvioDto {
     private String descripcion;
     private LocalDateTime fecha;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "registro_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    public List<GestionDetalle> gestionDetalle;
-
-    private Integer VehiculoId;
-    @Transient
-    private VehiculoDto vehiculoDto;
-
-    private Integer ClienteId;
-    @Transient
-    private ClienteDto clienteDto;
 }

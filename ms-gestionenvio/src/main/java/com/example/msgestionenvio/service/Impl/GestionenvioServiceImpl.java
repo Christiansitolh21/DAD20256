@@ -41,6 +41,12 @@ public class GestionenvioServiceImpl implements GestionenvioService {
                     throw new ResourceNotFoundException("VehiculoDto con ID " + gestionenvio.getRegistroenvioId() + " no existe");
                 }
                 gestionenvio.setRegistroenvioDto(registroenvioDtoResponse.getBody());
+
+                ResponseEntity<LibrocargaDto> librocargaDtoResponse = librocargaFeign.getById(gestionenvio.getLibrocargaId());
+                if (librocargaDtoResponse.getBody() == null) {
+                    throw new ResourceNotFoundException("ClienteDto con ID " + gestionenvio.getLibrocargaId() + " no existe");
+                }
+                gestionenvio.setLibrocargaDto(librocargaDtoResponse.getBody());
             } catch (FeignException e) {
                 // Manejar el error en el servidor de OpenFeign para VehiculoDto
                 throw new RuntimeException("Error al obtener el VehiculoDto con ID " + gestionenvio.getRegistroenvioId(), e);
@@ -52,7 +58,7 @@ public class GestionenvioServiceImpl implements GestionenvioService {
 
     @Override
     public Gestionenvio guardar(Gestionenvio gestionenvio) {
-        return null;
+        return gestionenvioRepository.save(gestionenvio);
     }
 
     @Override
@@ -73,7 +79,7 @@ public class GestionenvioServiceImpl implements GestionenvioService {
 
             ResponseEntity<LibrocargaDto> librocargaDtoResponse = librocargaFeign.getById(gestionenvio.getLibrocargaId());
             if (librocargaDtoResponse.getBody() == null) {
-                throw new ResourceNotFoundException("ClienteDto con ID " + gestionenvio.getClienteId() + " no existe");
+                throw new ResourceNotFoundException("ClienteDto con ID " + gestionenvio.getLibrocargaId() + " no existe");
             }
             gestionenvio.setLibrocargaDto(librocargaDtoResponse.getBody());
         } catch (FeignException e) {
@@ -87,11 +93,11 @@ public class GestionenvioServiceImpl implements GestionenvioService {
 
     @Override
     public Gestionenvio actualizar(Gestionenvio gestionenvio) {
-        return null;
+        return gestionenvioRepository.save(gestionenvio);
     }
 
     @Override
     public void eliminar(Integer id) {
-
+        gestionenvioRepository.deleteById(id);
     }
 }

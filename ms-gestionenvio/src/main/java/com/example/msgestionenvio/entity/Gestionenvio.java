@@ -1,9 +1,7 @@
 package com.example.msgestionenvio.entity;
 
-import com.example.msgestionenvio.dto.ClienteDto;
 import com.example.msgestionenvio.dto.LibrocargaDto;
 import com.example.msgestionenvio.dto.RegistroenvioDto;
-import com.example.msgestionenvio.feign.LibrocargaFeign;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,7 +17,10 @@ public class Gestionenvio {
     private String titulo;
     private String descripcion;
     private String categoria;
-
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "gestion_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    public List<GestionDetalle> gestionDetalles;
 
     private Integer registroenvioId;
     @Transient
@@ -28,11 +29,6 @@ public class Gestionenvio {
     private Integer LibrocargaId;
     @Transient
     private LibrocargaDto librocargaDto;
-
-    private Integer ClienteId;
-    @Transient
-    private ClienteDto clienteDto;
-
 
 
 }
