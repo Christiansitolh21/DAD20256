@@ -15,4 +15,8 @@ public interface VehiculoService {
     public Optional<Vehiculo> ListarPorId(Integer id);
 
     public void eliminarPorId(Integer id);
+
+    public void generarVehiculosFalsos(int cantidad);
+
+    void generarRutasFalsas(int cantidad);
 }

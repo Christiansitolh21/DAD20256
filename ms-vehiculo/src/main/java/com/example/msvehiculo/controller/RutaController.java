@@ -6,6 +6,8 @@ import com.example.msvehiculo.service.RutaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.msvehiculo.service.VehiculoService;
+
 
 import java.util.List;
 
@@ -14,6 +16,9 @@ import java.util.List;
 public class RutaController {
     @Autowired
     private RutaService rutaService;
+    @Autowired
+    private VehiculoService vehiculoService;
+
     @GetMapping
     public ResponseEntity<List<Ruta>> list() {
         return ResponseEntity.ok().body(rutaService.listar());
@@ -35,4 +40,5 @@ public class RutaController {
         rutaService.eliminarPorId(id);
         return ResponseEntity.ok(rutaService.listar());
     }
+
 }

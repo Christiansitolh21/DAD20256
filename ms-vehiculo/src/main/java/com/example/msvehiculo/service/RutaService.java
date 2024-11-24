@@ -16,4 +16,5 @@ public interface RutaService {
     public Optional<Ruta> ListarPorId(Integer id);
 
     public void eliminarPorId(Integer id);
+
 }

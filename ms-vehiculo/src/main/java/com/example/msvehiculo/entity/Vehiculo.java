@@ -12,7 +12,6 @@ public class Vehiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
     private String marca;
     private String modelo;
     private String placa;
