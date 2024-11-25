@@ -9,8 +9,6 @@ eureka:
     #hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-
-
 spring:
   cloud:
     gateway:
@@ -43,23 +41,27 @@ spring:
         - id: ms-cliente-service
           uri: lb://ms-cliente-service
           predicates:
-           - Path=/cliente/**
+            - Path=/clientes/**
           filters:
             - AuthFilter
         - id: ms-registroenvio-service
           uri: lb://ms-registroenvio-service
           predicates:
-           - Path=/registroenvio/**
+            - Path=/registroenvio/**
           filters:
-           - AuthFilter
+            - AuthFilter
         - id: ms-librocarga-service
           uri: lb://ms-librocarga-service
           predicates:
-           - Path=/librocarga/**
+            - Path=/librocarga/**
+          filters:
+            - AuthFilter
         - id: ms-gestionenvio-service
           uri: lb://ms-gestionenvio-service
           predicates:
             - Path=/gestionenvio/**
+          filters:
+            - AuthFilter
         - id: ms-auth-service
           uri: lb://ms-auth-service
           predicates:

@@ -159,6 +159,20 @@ export class ClassyLayoutComponent implements OnInit, OnDestroy {
                         icon: 'heroicons_outline:chart-pie',
                         link: '/homeScreen/setup/category',
                     },
+                    {
+                        id: 'SetupVehiculo',
+                        title: 'Setup Vehiculo',
+                        type: 'basic',
+                        icon: 'heroicons_outline:chart-pie',
+                        link: '/homeScreen/setup/vehiculo',
+                    },
+                    {
+                        id: 'SetupLibroCarga',
+                        title: 'Setup LibroCarga',
+                        type: 'basic',
+                        icon: 'heroicons_outline:chart-pie',
+                        link: '/homeScreen/setup/LibroCarga',
+                    },
                 ],
             },
 
