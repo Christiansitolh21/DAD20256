@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:4200") // Habilitar CORS para Angular
 
 @RestController
 @RequestMapping("/vehiculo")
