@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientEditComponent } from '../components/form/client-edit.component';
 import {ConfirmDialogService} from "../../../../../shared/confirm-dialog/confirm-dialog.service";
 import {ClientListComponent} from "../components";
-import {ClientService} from "../../../../../providers/services/setup/client.service";
+import {ClienteService} from "../../../../../providers/services/setup/cliente.service";
 
 @Component({
     selector: 'app-clients-container',
@@ -39,7 +39,7 @@ export class ClientContainerComponent implements OnInit {
     public client = new Client();
 
     constructor(
-        private _clientService: ClientService,
+        private _clientService: ClienteService,
         private _confirmDialogService:ConfirmDialogService,
         private _matDialog: MatDialog,
     ) {}
@@ -93,7 +93,7 @@ export class ClientContainerComponent implements OnInit {
         console.log(data);
         if (data) {
             const clienteForm = this._matDialog.open(ClientEditComponent);
-            clienteForm.componentInstance.title =`Editar <b>${data.nombre||data.id} </b>`;
+            clienteForm.componentInstance.title =`Editar <b>${data.name||data.id} </b>`;
             clienteForm.componentInstance.client = data;
             clienteForm.afterClosed().subscribe((result: any) => {
                 if (result) {

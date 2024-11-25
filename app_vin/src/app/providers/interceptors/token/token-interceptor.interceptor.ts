@@ -1,4 +1,4 @@
-import {HttpInterceptorFn} from '@angular/common/http';
+import { HttpInterceptorFn } from '@angular/common/http';
 
 export const tokenInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
 
@@ -9,8 +9,6 @@ export const tokenInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(req.url);
-        console.log(req.headers);
     }
-    return next(req);
+  return next(req);
 };

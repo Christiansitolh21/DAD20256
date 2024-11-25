@@ -26,6 +26,12 @@ spring:
         locator:
           enable: true
       routes:
+        - id: ms-catalogo-service
+          uri: lb://ms-catalogo-service
+          predicates:
+            - Path=/category/**
+          filters:
+            - AuthFilter
         - id: ms-vehiculo-service
           uri: lb://ms-vehiculo-service
           predicates:

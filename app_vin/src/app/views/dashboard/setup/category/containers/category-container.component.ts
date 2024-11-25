@@ -1,11 +1,11 @@
-import {Category} from '../models/category';
-import {CommonModule} from '@angular/common';
-import {RouterOutlet} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {CategoryNewComponent} from '../components/form/category-new.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CategoryEditComponent} from '../components/form/category-edit.component';
+import { Category } from '../models/category';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CategoryNewComponent } from '../components/form/category-new.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryEditComponent } from '../components/form/category-edit.component';
 import {ConfirmDialogService} from "../../../../../shared/confirm-dialog/confirm-dialog.service";
 
 
@@ -28,7 +28,7 @@ import {ClientListComponent} from "../components";
         <app-category-list
             class="w-full"
             [categories]="categories"
-            (eventNew)="eventNew($event)"
+            (eventNew) = "eventNew($event)"
             (eventEdit)="eventEdit($event)"
             (eventDelete)="eventDelete($event)"
         ></app-category-list>
@@ -41,21 +41,13 @@ export class CategoryContainerComponent implements OnInit {
 
     constructor(
         private _categoryService: CategoryService,
-        private _confirmDialogService: ConfirmDialogService,
+        private _confirmDialogService:ConfirmDialogService,
         private _matDialog: MatDialog,
-    ) {
-
-        console.log("constructor")
-
-    }
+    ) {}
 
     ngOnInit() {
-
-        console.log("ngOnInit()");
         this.getCategorys();
-
     }
-
 
     getCategorys(): void {
         this._categoryService.getAll$().subscribe(
@@ -72,10 +64,9 @@ export class CategoryContainerComponent implements OnInit {
         if ($event) {
             const CategoryeForm = this._matDialog.open(CategoryNewComponent);
             CategoryeForm.componentInstance.title = 'Nuevo Category' || null;
-            CategoryeForm.componentInstance.categorys = this.categories;
             CategoryeForm.afterClosed().subscribe((result: any) => {
                 if (result) {
-                    this.saveCategory(result);
+                   this.saveCategory(result);
                 }
             });
         }
@@ -83,9 +74,9 @@ export class CategoryContainerComponent implements OnInit {
 
     saveCategory(data: Object): void {
         this._categoryService.add$(data).subscribe((response) => {
-            if (response) {
-                this.getCategorys()
-            }
+        if (response) {
+            this.getCategorys()
+        }
         });
     }
 
@@ -102,18 +93,18 @@ export class CategoryContainerComponent implements OnInit {
     openModalEdit(data: Category) {
         if (data) {
             const CategoryeForm = this._matDialog.open(CategoryEditComponent);
-            CategoryeForm.componentInstance.title = `Editar <b>${data.name || data.id} </b>`;
+            CategoryeForm.componentInstance.title =`Editar <b>${data.name||data.id} </b>`;
             CategoryeForm.componentInstance.category = data;
             CategoryeForm.afterClosed().subscribe((result: any) => {
                 if (result) {
-                    this.editCategory(data.id, result);
+                   this.editCategory(data.id,result);
                 }
             });
         }
     }
 
-    editCategory(idCategory: number, data: Object) {
-        this._categoryService.update$(idCategory, data).subscribe((response) => {
+    editCategory( idCategory: number,data: Object) {
+        this._categoryService.update$(idCategory,data).subscribe((response) => {
             if (response) {
                 this.getCategorys()
             }

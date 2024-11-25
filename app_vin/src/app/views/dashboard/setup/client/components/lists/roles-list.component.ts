@@ -49,15 +49,12 @@ import { MatDialog } from '@angular/material/dialog';
                                     {{ i }}
                                 </td>
                                 <td class="w-2/6 p-2  text-start border-b text-sm">
-                                    {{ r.nombre }}
+                                {{ r.name }}
                                 </td>
-                                <td class="w-1/6 p-2 text-center border-b text-sm">
-                                    <div
-                                        class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-green-500/20 text-green-600 py-1 px-2 text-xs rounded-md"
-                                        style="opacity: 1">
-                                        <span class="">ACTIVO</span>
-                                    </div>
+                                <td class="w-2/6 p-2  text-start border-b text-sm">
+                                    {{ r.document }}
                                 </td>
+
 
                                 <td class="w-2/6 p-2 text-center border-b text-sm">
                                     <div class="flex justify-center space-x-3">

@@ -9,7 +9,6 @@ export const toastInterceptor: HttpInterceptorFn = (req, next) => {
     const toastr = inject(ToastrService);
     return next(req).pipe(
         tap(event => {
-            console.log("peticion correcta")
             if (event.type === HttpEventType.Response && req.url.includes('api')) {
                 if (event.status >= 200 && event.status < 300) {
                     toastr.success(`${event.body['message'] ?? 'En hora buena'}`, 'Correcto');
@@ -19,11 +18,11 @@ export const toastInterceptor: HttpInterceptorFn = (req, next) => {
             }
         }),
         catchError(err => {
-
+            
             let errorMessage = 'Error desconocido';
             const responseObject:any = {};
             responseObject.error = err;
-
+        
             if(typeof responseObject === 'object' && err !== null) {
                 if (responseObject.error.error.error === 'Unauthorized') {
                     errorMessage = 'No tienes permisos para realizar esta acción';
@@ -49,7 +48,7 @@ export const toastInterceptor: HttpInterceptorFn = (req, next) => {
             } else if (err.status >= 500) {
                 toastr.error(errorMessage, 'Error Grave');
             }
-
+    
             return throwError(err);
         })
     );
