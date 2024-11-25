@@ -10,6 +10,7 @@ export const END_POINTS = {
     reset: 'auth/reset',
   },
   setup: {
+      registroenvio:'registroenvio',
       vehiculo:'vehiculo',
       category: 'category',
     role: 'rol',

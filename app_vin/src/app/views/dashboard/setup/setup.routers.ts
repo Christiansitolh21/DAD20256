@@ -6,6 +6,7 @@ export default [
         path: '',
         component: SetupComponent,
         children: [
+            {path: 'registroenvio', loadChildren: () => import('./registroenvio/registroenvio.routers')},
             {path: 'vehiculo', loadChildren: () => import('./vehiculo/vehiculo.routers')},
             {path: 'client', loadChildren: () => import('./client/cliente.routers')},
             {path: 'category', loadChildren: () => import('./category/category.routers')},

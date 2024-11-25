@@ -15,7 +15,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:4200"
+            allowedOrigins: "d42d-200-37-54-203.ngrok-free.app"
             allowedHeaders: "*"
             allowedMethods:
               - GET
