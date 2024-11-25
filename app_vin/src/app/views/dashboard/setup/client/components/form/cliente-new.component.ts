@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-    selector: 'app-clients-new',
+    selector: 'app-clientes-new',
     standalone: true,
     imports: [
         FormsModule,
@@ -42,14 +42,30 @@ import { MatInputModule } from '@angular/material/input';
 
 
             <!-- Compose form -->
-            <form class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto" [formGroup]="clientForm">
+            <form class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto" [formGroup]="clienteForm">
                 <mat-form-field>
-                    <mat-label>Nombre</mat-label>
-                    <input matInput formControlName="name" />
+                    <mat-label>dni</mat-label>
+                    <input matInput formControlName="dni" />
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>Estado</mat-label>
-                    <input matInput formControlName="document" />
+                    <mat-label>nombre</mat-label>
+                    <input matInput formControlName="nombre" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>apellidos</mat-label>
+                    <input matInput formControlName="apellidos" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>telefono</mat-label>
+                    <input matInput formControlName="telefono" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>correoElectronico</mat-label>
+                    <input matInput formControlName="correoElectronico" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>direccion</mat-label>
+                    <input matInput formControlName="direccion" />
                 </mat-form-field>
 
                 <!-- Actions -->
@@ -65,24 +81,28 @@ import { MatInputModule } from '@angular/material/input';
         </div>
     `,
 })
-export class ClientNewComponent implements OnInit {
+export class ClienteNewComponent implements OnInit {
     @Input() title: string = '';
     abcForms: any;
-    clientForm = new FormGroup({
-        name: new FormControl('', [Validators.required]),
-        document: new FormControl('', [Validators.required]),
+    clienteForm = new FormGroup({
+        dni: new FormControl('', [Validators.required]),
+        nombre: new FormControl('', [Validators.required]),
+        apellidos: new FormControl('', [Validators.required]),
+        telefono: new FormControl('', [Validators.required]),
+        correoElectronico: new FormControl('', [Validators.required]),
+        direccion: new FormControl('', [Validators.required]),
 
     });
 
-    constructor(private _matDialog: MatDialogRef<ClientNewComponent>) {}
+    constructor(private _matDialog: MatDialogRef<ClienteNewComponent>) {}
 
     ngOnInit() {
         this.abcForms = abcForms;
     }
 
     public saveForm(): void {
-        if (this.clientForm.valid) {
-            this._matDialog.close(this.clientForm.value);
+        if (this.clienteForm.valid) {
+            this._matDialog.close(this.clienteForm.value);
         }
     }
 

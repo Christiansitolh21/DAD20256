@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { abcForms } from '../../../../../../../environments/generals';
-import { Client } from '../../models/client';
+import { Cliente } from '../../models/cliente';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-    selector: 'app-clients-list',
+    selector: 'app-clientes-list',
     imports: [CommonModule, RouterOutlet, MatButtonModule, MatIconModule],
     standalone: true,
     template: `
@@ -31,28 +31,49 @@ import { MatDialog } from '@angular/material/dialog';
                             <tr>
                                 <th class="w-1/6 table-head text-center px-5 border-r">#</th>
                                 <th class="w-2/6 table-header text-center px-5 border-r">
-                                    Nombre
+                                    dni
                                 </th>
                                 <th class="w-1/6 table-header text-center border-r">
-                                    Estado
+                                    nombre
                                 </th>
                                 <th class="w-2/6 table-header text-center">
-                                    Acciones
+                                    apellidos
+                                </th>
+                                <th class="w-2/6 table-header text-center px-5 border-r">
+                                    telefono
+                                </th>
+                                <th class="w-1/6 table-header text-center border-r">
+                                    correoElectronico
+                                </th>
+                                <th class="w-2/6 table-header text-center">
+                                    direccion
                                 </th>
                             </tr>
                         </thead>
                         <tbody
                             class="bg-white"
-                            *ngFor="let r of clients; let i = index">
+                            *ngFor="let r of clientes; let i = index">
                             <tr class="hover:bg-gray-100">
                                 <td class="w-1/6 p-2 text-center border-b">
                                     {{ i }}
                                 </td>
                                 <td class="w-2/6 p-2  text-start border-b text-sm">
-                                {{ r.name }}
+                                {{ r.dni }}
                                 </td>
                                 <td class="w-2/6 p-2  text-start border-b text-sm">
-                                    {{ r.document }}
+                                    {{ r.nombre }}
+                                </td>
+                                <td class="w-2/6 p-2  text-start border-b text-sm">
+                                    {{ r.apellidos }}
+                                </td>
+                                <td class="w-2/6 p-2  text-start border-b text-sm">
+                                    {{ r.telefono }}
+                                </td>
+                                <td class="w-2/6 p-2  text-start border-b text-sm">
+                                    {{ r.correoElectronico }}
+                                </td>
+                                <td class="w-2/6 p-2  text-start border-b text-sm">
+                                    {{ r.direccion }}
                                 </td>
 
 
@@ -94,7 +115,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ClientListComponent implements OnInit {
     abcForms: any;
-    @Input() clients: Client[] = [];
+    @Input() clientes: Cliente[] = [];
     @Output() eventNew = new EventEmitter<boolean>();
     @Output() eventEdit = new EventEmitter<number>();
     @Output() eventDelete = new EventEmitter<number>();

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {abcForms} from '../../../../../../../environments/generals';
-import {Client} from '../../models/client';
+import {Cliente} from '../../models/cliente';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -10,7 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-client-edit',
+  selector: 'app-cliente-edit',
   standalone: true,
   imports: [FormsModule,
     MatIconModule,
@@ -31,7 +31,7 @@ import {MatDialogRef} from "@angular/material/dialog";
       </div>
 
       <!-- Compose form -->
-        <form class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto" [formGroup]="clientForm">
+        <form class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto" [formGroup]="clienteForm">
             <mat-form-field>
                 <mat-label>Nombre</mat-label>
                 <input matInput formControlName="nombre" />
@@ -54,34 +54,38 @@ import {MatDialogRef} from "@angular/material/dialog";
     </div>
   `
 })
-export class ClientEditComponent implements OnInit {
-    clientForm = new FormGroup({
-        name: new FormControl('', [Validators.required]),
-        document: new FormControl('', [Validators.required]),
+export class ClienteEditComponent implements OnInit {
+    clienteForm = new FormGroup({
+        dni: new FormControl('', [Validators.required]),
+        nombre: new FormControl('', [Validators.required]),
+        apellidos: new FormControl('', [Validators.required]),
+        telefono: new FormControl('', [Validators.required]),
+        correoElectronico: new FormControl('', [Validators.required]),
+        direccion: new FormControl('', [Validators.required]),
 
     });
   @Input() title: string = '';
-  @Input() client = new Client();
+  @Input() cliente = new Cliente();
   abcForms: any;
 
   constructor(
       private formBuilder: FormBuilder,
-      private _matDialog: MatDialogRef<ClientEditComponent>,
+      private _matDialog: MatDialogRef<ClienteEditComponent>,
   ) {
   }
 
   ngOnInit() {
     this.abcForms = abcForms;
 
-    if (this.client) {
-        console.log(this.client);
-      this.clientForm.patchValue(this.client);
+    if (this.cliente) {
+        console.log(this.cliente);
+      this.clienteForm.patchValue(this.cliente);
     }
   }
 
   public saveForm(): void {
-    if (this.clientForm.valid) {
-      this._matDialog.close(this.clientForm.value);
+    if (this.clienteForm.valid) {
+      this._matDialog.close(this.clienteForm.value);
     }
   }
 

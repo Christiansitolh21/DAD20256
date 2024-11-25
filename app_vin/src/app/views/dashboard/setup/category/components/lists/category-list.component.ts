@@ -17,11 +17,11 @@ import { MatDialog } from '@angular/material/dialog';
             <!-- Encabezado principal -->
             <div class="flex justify-between items-center mb-2 bg-slate-300 text-black p-4 rounded">
                 <h2 class="text-2xl font-bold">
-                    Lista de <span class="text-primary">Categorías</span>
+                    Lista de <span class="text-primary">Productos</span>
                 </h2>
                 <button mat-flat-button [color]="'primary'" (click)="goNew()">
                     <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
-                    <span class="ml-2">Nueva categoría</span>
+                    <span class="ml-2">Nuevo Producto</span>
                 </button>
             </div>
             <div class="bg-white rounded overflow-hidden shadow-lg">

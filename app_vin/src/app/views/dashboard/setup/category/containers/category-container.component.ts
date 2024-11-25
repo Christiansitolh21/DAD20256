@@ -63,7 +63,7 @@ export class CategoryContainerComponent implements OnInit {
     public eventNew($event: boolean): void {
         if ($event) {
             const CategoryeForm = this._matDialog.open(CategoryNewComponent);
-            CategoryeForm.componentInstance.title = 'Nuevo Category' || null;
+            CategoryeForm.componentInstance.title = 'Nuevo Producto' || null;
             CategoryeForm.afterClosed().subscribe((result: any) => {
                 if (result) {
                    this.saveCategory(result);
