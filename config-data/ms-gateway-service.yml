@@ -35,7 +35,7 @@ spring:
         - id: ms-vehiculo-service
           uri: lb://ms-vehiculo-service
           predicates:
-            - Path=/vehiculo/**
+            - Path=/vehiculos/**
           filters:
             - AuthFilter
         - id: ms-cliente-service

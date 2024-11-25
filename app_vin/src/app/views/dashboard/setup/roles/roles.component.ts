@@ -31,7 +31,7 @@ import { Component, OnInit } from '@angular/core';
 import { RolesContainerComponent } from './containers/roles-container.component';
 
 @Component({
-    selector: 'app-setup',
+    selector: 'app-role',
     standalone: true,
     imports: [CommonModule, RouterOutlet],
     template: `
