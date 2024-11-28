@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: "http://localhost:8085/",
-  // url: "http://pruebasback.imperiumse.com/api/",
+  apiurl: " https://d42d-200-37-54-203.ngrok-free.io/api/",
 
 };
 

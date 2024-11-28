@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  // url: "https://asistenciamonolitoback.imperiumse.com/",
+  apiurl: "https://localhost:8085/api",
 };
 
